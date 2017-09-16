@@ -14,6 +14,11 @@ Vagrant.configure("2") do |config|
      ansible.playbook = "./helper_scripts/empty_playbook.yml"
    end
 
+  config.trigger.after :destroy do
+     puts "Removing known host entries"
+     `rm -f ~/.ssh/known_hosts`
+  end
+
   ##### DEFINE VM for rtr-1 #####
   config.vm.define "asa-1" do |device|
     device.vm.box = "asav"
