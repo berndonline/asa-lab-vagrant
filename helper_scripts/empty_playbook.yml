@@ -8,8 +8,3 @@
       host: "{{ ansible_ssh_host }}"
       username: vagrant
       password: vagrant
-  tasks:
-    - name: run show version on remote devices
-      asa_command:
-        commands: show version
-        provider: "{{ cli }}"

@@ -10,9 +10,9 @@ Vagrant.configure("2") do |config|
   end
   #Generating Ansible Host File at following location:
   #    ./.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
-#  config.vm.provision "ansible" do |ansible|
-#    ansible.playbook = "./helper_scripts/empty_playbook.yml"
-#  end
+   config.vm.provision "ansible" do |ansible|
+     ansible.playbook = "./helper_scripts/empty_playbook.yml"
+   end
 
   ##### DEFINE VM for rtr-1 #####
   config.vm.define "asa-1" do |device|
@@ -40,6 +40,7 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
   config.ssh.guest_port = 22
   config.ssh.insert_key = false
+
 end
 
   ##### DEFINE VM for rtr-2 #####
@@ -68,6 +69,7 @@ end
   config.ssh.forward_agent = true
   config.ssh.guest_port = 22
   config.ssh.insert_key = false
+
 end
 
 end
